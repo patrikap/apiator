@@ -1,0 +1,39 @@
+{
+    "name": "k.kostoglodov/apiator",
+    "version": "1.1.1",
+    "description": "Service designed to help when working with REST API",
+    "keywords": [
+        "api",
+        "logger",
+        "laravel",
+        "lumen",
+        "patrikap"
+    ],
+    "homepage": "https://github.com/patrikap/apiator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konstantin K.",
+            "email": "patrikap@gmail.com",
+            "homepage": "http://patrikap.ru",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4",
+        "illuminate/http": "^7.0",
+        "illuminate/contracts": "^7.0",
+        "illuminate/support": "^7.0",
+        "illuminate/routing": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Patrikap\\Apiator\\": "src/"
+        },
+        "files": [
+            "src/Support/helpers.php"
+        ]
+    }
+}
