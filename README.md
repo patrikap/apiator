@@ -40,3 +40,5 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Licence
 MIT, please see [LICENCE](LICENSE) for more information.
+
+## Designed by `PHP` with &hearts;
