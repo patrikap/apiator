@@ -11,7 +11,7 @@ You can install the package via composer:
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@gitlab.cdek.ru:k.kostoglodov/apiator.git",
+      "url": "git@github.com:patrikap/apiator.git",
       "branch": "master"
     }
   ]
@@ -20,7 +20,7 @@ You can install the package via composer:
 
 ### Run require command 
 ```bash
-composer require k.kostoglodov/apiator
+composer require patrikap/apiator
 ```
 
 ### Edit your `./bootstrap/app.php`
