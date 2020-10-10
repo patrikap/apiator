@@ -3,6 +3,15 @@ declare(strict_types = 1);
 
 return [
     /**
+     * массив заголовков
+     */
+    'headers'           => [
+        /** заголовок ответа для отражения идентификатора запроса */
+        'requestId' => env('REQUEST_ID_HEADER', 'X-Request-Id'),
+        /** заголовок ответа для отражения времени выполнения кода по умолчанию */
+        'runtime'   => env('RUNTIME_HEADER', 'X-Runtime'),
+    ],
+    /**
      * Префикс уникального идентификатора запроса
      */
     'requetIdPrefix'    => 'APTR_',

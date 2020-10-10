@@ -1,6 +1,6 @@
 # Apiator
 
-Service designed to help when working with REST API:
+Service designed to help when working with REST JSON API:
 * converts API responses to a single format
 * logs requests and responses (without delaying the response to the client)
 

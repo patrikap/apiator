@@ -19,6 +19,19 @@ class JsonResponseFormatter implements JsonResponseFormatterInterface
 {
     /** @var array formatting json */
     private array $json = [];
+    /** @var array|string[] error message collection */
+    private array $messageCollection = [
+        400 => 'Bad request',
+        401 => 'Access denied',
+        403 => 'Forbidden',
+        404 => 'Not found',
+        405 => 'Method not allowed',
+        415 => 'Unsupported Media Type',
+        419 => 'Authentication Timeout',
+        422 => 'Unprocessable Entity',
+        500 => 'Internal server error',
+        501 => 'Not Implemented',
+    ];
 
     /**
      * JsonResponseFormatter constructor.
@@ -101,6 +114,19 @@ class JsonResponseFormatter implements JsonResponseFormatterInterface
         return $this;
     }
 
+    /**
+     * hiding internal exceptions of the framework
+     *
+     * @param int $code
+     */
+    private function getErrorMessage(int $code): string
+    {
+        if (isset($this->messageCollection[$code])) {
+            return $this->messageCollection[$code];
+        }
+
+        return 'Undefined error, please contact with developers';
+    }
     /***************************************/
     /** @inheritDoc */
     public function formatResponseWithException(Throwable $exception, int $statusCode): self
@@ -108,7 +134,8 @@ class JsonResponseFormatter implements JsonResponseFormatterInterface
         $this->resetJson();
         $this->setSuccess(false)
             ->setCode($statusCode)
-            ->setMessage($exception->getMessage());
+            ->setMessage($this->getErrorMessage($statusCode));
+            //->setMessage($exception->getMessage());
 
         return $this;
     }
