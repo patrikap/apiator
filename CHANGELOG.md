@@ -25,4 +25,6 @@ Added:
  * custom response headers (request id, runtime)
  * hiding internal exceptions to the framework
  * support 8.0 Laravel packages
- * docs info
+
+## 1.1.3 - 2020-10-10
+Fix docs info
