@@ -19,3 +19,9 @@ Version 1.1.1
     - Lumen framework support
 - Different Laravel/Lumen documentation
 - Additional info moved to "x-headers"
+
+## 1.1.2 - 2020-10-10
+Added:
+ * custom response headers (request id, runtime)
+ * hiding internal exceptions to the framework
+ * support 8.0 Laravel packages

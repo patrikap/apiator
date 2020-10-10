@@ -20,11 +20,6 @@ use Illuminate\Contracts\Container\BindingResolutionException;
  */
 class ApiatorService
 {
-    /** @var string заголовок ответа для отражения идентификатора запроса */
-    protected const REQUEST_ID_HEADER = 'X-Request-Id';
-    /** @var string заголовок ответа для отражения времени выполнения кода */
-    protected const RUNTIME_HEADER = 'X-Runtime';
-
     /** @var string|null уникальный идентификатор запроса */
     private ?string $requestId;
     /** @var float|null время начала обработки данных */
@@ -39,6 +34,10 @@ class ApiatorService
     private ?Request $request;
     /** @var JsonResponse|null ответ */
     private ?JsonResponse $response;
+    /** @var string заголовок ответа для отражения идентификатора запроса */
+    private string $requestIdHeaderName;
+    /** @var string заголовок ответа для отражения времени выполнения кода */
+    private string $runtimeHeaderName;
 
     /**
      * ApiatorService constructor.
@@ -47,6 +46,8 @@ class ApiatorService
      */
     public function __construct(JsonResponseFormatterInterface $formatter)
     {
+        $this->requestIdHeaderName = config('apiator.headers.requestId');
+        $this->runtimeHeaderName = config('apiator.headers.runtime');
         $this->formatter = $formatter;
     }
 
@@ -150,8 +151,8 @@ class ApiatorService
     protected function getResponseHeaders(): array
     {
         return [
-            self::REQUEST_ID_HEADER => $this->requestId,
-            self::RUNTIME_HEADER    => $this->getRuntime(),
+            $this->requestIdHeaderName => $this->requestId,
+            $this->runtimeHeaderName   => $this->getRuntime(),
         ];
     }
 
